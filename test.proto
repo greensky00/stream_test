@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package streamtest;
+
+service StreamTestSvc {
+    rpc teststream(stream TestReq) returns (stream TestResp) { }
+}
+
+message TestReq {
+    bytes payload = 1;
+};
+
+message TestResp {
+    bool ok = 1;
+};
